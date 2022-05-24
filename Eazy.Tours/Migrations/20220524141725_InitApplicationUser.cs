@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Eazy.Tours.Migrations.LoginDb
+namespace Eazy.Tours.Migrations
 {
     public partial class InitApplicationUser : Migration
     {
