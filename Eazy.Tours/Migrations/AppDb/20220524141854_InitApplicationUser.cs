@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Eazy.Tours.Migrations
+namespace Eazy.Tours.Migrations.AppDb
 {
-    public partial class Init : Migration
+    public partial class InitApplicationUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

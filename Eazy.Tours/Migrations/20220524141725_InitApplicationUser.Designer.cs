@@ -3,16 +3,18 @@ using System;
 using Eazy.Tours.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Eazy.Tours.Migrations.LoginDb
+namespace Eazy.Tours.Migrations
 {
     [DbContext(typeof(LoginDbContext))]
-    partial class LoginDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220524141725_InitApplicationUser")]
+    partial class InitApplicationUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
