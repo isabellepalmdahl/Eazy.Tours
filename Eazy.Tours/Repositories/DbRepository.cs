@@ -1,12 +1,16 @@
-﻿namespace Eazy.Tours.Repositories
+﻿using System.Linq.Expressions;
+
+namespace Eazy.Tours.Repositories
 {
     public class DbRepository : IDbRepository
     {
         private readonly AppDbContext _db;
 
+
         public DbRepository(AppDbContext db)
         {
             _db = db;
+
         }
 
         public User GetUserById (int id)

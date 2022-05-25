@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Eazy.Tours.Areas.Identity.Data;
-
+using Eazy.Tours.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,6 +60,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+//{area=Customer}/ is missing infront of controller but it cant find localhost with it
 
 app.MapRazorPages();
 
@@ -82,4 +83,5 @@ void AddScoped()
     builder.Services.AddScoped<IUserRepository, UserRepository>();
     builder.Services.AddScoped<IRoleRepository, RoleRepository>();
     builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 }
