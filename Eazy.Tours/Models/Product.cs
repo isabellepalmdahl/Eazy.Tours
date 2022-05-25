@@ -16,5 +16,7 @@ namespace Eazy.Tours.Models
         public int CategoryId { get; set; }
         [ValidateNever]
         public Category Category { get; set; }
+
+        //add date for calender later
     }
 }
