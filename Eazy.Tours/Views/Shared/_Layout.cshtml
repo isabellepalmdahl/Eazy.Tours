@@ -28,9 +28,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -41,6 +38,10 @@
                             </li>
                         }
                     </ul>
+                     <form class="d-flex">
+                        <input class="form-control me-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                     </form>
                 </div>
                 <partial name="_LoginPartial"/>
             </div>
@@ -54,7 +55,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - YourCompany - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - Isabelle Palmdahl - <a asp-area="" asp-controller="Home" asp-action="Privacy">Terms and conditions</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
