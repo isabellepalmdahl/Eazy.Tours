@@ -1,6 +1,8 @@
 ﻿using Eazy.Tours.Models;
+using Eazy.Tours.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace Eazy.Tours.Controllers
 {
@@ -30,7 +32,7 @@ namespace Eazy.Tours.Controllers
         [HttpGet]
         public IActionResult Details(int? productId)
         {
-            Cart cart = new Cart()
+            CartVM cart = new CartVM()
             {
                 Product = _unitOfWork.Product.GetT(x => x.Id == productId, includeProperties: "Category"),
                 Count = 1,
@@ -38,6 +40,34 @@ namespace Eazy.Tours.Controllers
             };
             return View(cart);
         }
+
+        //[HttpPost]
+        //[Authorize]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Details(Cart cart)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        //        var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        //        cart.ApplicationUserId = claims.Value;
+
+        //        var cartItem = _unitOfWork.CartVM.GetT(x => x.ProductId == cart.ProductId && x.ApplicationUserId == claims.Value);
+
+        //        if (cartItem == null)
+        //        {
+        //            _unitOfWork.CartVM.Add(cart);
+        //            _unitOfWork.Save();
+        //            HttpContext.Session.SetInt32("SessionCart", _unitOfWork.CartVM.GetAll(x => x.ApplicationUserId == claims.Value).ToList().Count); 
+        //        }
+        //        else
+        //        {
+        //            _unitOfWork.CartVM.IncrementCartItem(cartItem, cart.Count);
+        //            _unitOfWork.Save();
+        //        }
+        //    }
+        //    return RedirectToAction("Index");
+        //}
 
         public IActionResult Privacy()
         {
