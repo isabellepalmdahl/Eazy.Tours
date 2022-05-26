@@ -1,0 +1,31 @@
+﻿@model Eazy.Tours.Models.Cart
+@{
+    ViewData["Title"] = "Product details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Product details</h1>
+<form method="post">
+    <div class="col-4">
+        <img src="@Model.Product.ImageUrl" width="200" height="200"/>
+        <input type="hidden" asp-for="ProductId"/>
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <label asp-for="Product.Name">Product name: @Model.Product.Name</label>
+            <label asp-for="Product.Description">Product description: @Model.Product.Description</label>
+            <label asp-for="Product.Description">Product price: € @Model.Product.Price.ToString("0.00")</label>
+            <label asp-for="Product.Category.Id">Product category: @Model.Product.Category.Name</label>
+            <div class="form-control">
+                <label asp-for="Count">Amount</label>
+                <input asp-for="Count" class="form-control"/>
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="form-control">
+                <button class="btn btn-secondary" asp-action="Index" asp-controller="Home">Back to list</button>
+                <button type="submit" class="btn btn-success">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</form>
+

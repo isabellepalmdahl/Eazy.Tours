@@ -15,8 +15,10 @@ $(document).ready(function () {
                 "render": function (data) {
                     return `
                             <a href="/Product/CreateUpdate?id=${data}"><i class="bi bi-pencil-square"></i></a>
-                            <a onclick=RemoveProduct("/Product/Delete/${data})"><i class="bi bi-trash"></i></a>
-`   }
+                            <a onclick=RemoveProduct("/Product/Delete/${data}")><i class="bi bi-trash"></i></a>
+
+                    `
+                }
             }
         ]
 
@@ -31,13 +33,13 @@ function RemoveProduct(url) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it'
+        confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
 
             $.ajax({
                 url: url,
-                type: 'DELETE',
+                type: 'Delete',
                 success: function (data) {
                     if (data.success) {
                         dtable.ajax.reload();
