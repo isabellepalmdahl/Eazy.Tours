@@ -17,5 +17,7 @@ namespace Eazy.Tours.Models
         public ApplicationUser ApplicationUser { get; set; }
 
         public int Count { get; set; }
+
+        public int Availability { get; set; }
     }
 }
