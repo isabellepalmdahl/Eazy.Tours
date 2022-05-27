@@ -24,7 +24,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<LoginDbContext>();;
+    .AddEntityFrameworkStores<LoginDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

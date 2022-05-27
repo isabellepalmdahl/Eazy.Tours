@@ -10,5 +10,6 @@ namespace Eazy.Tours.Repositories
         void Add(T entity);
         void Delete(T entity);
         void DeleteRange(IEnumerable<T> entity);
+
     }
 }

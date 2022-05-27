@@ -41,33 +41,33 @@ namespace Eazy.Tours.Controllers
             return View(cart);
         }
 
-        //[HttpPost]
-        //[Authorize]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult Details(Cart cart)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        var claimsIdentity = (ClaimsIdentity)User.Identity;
-        //        var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-        //        cart.ApplicationUserId = claims.Value;
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult Details(Cart cart)
+        {
+            if (!ModelState.IsValid)
+            {
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                cart.ApplicationUserId = claims.Value;
 
-        //        var cartItem = _unitOfWork.CartVM.GetT(x => x.ProductId == cart.ProductId && x.ApplicationUserId == claims.Value);
+                var cartItem = _unitOfWork.Cart.GetT(x => x.ProductId == cart.ProductId && x.ApplicationUserId == claims.Value);
 
-        //        if (cartItem == null)
-        //        {
-        //            _unitOfWork.CartVM.Add(cart);
-        //            _unitOfWork.Save();
-        //            HttpContext.Session.SetInt32("SessionCart", _unitOfWork.CartVM.GetAll(x => x.ApplicationUserId == claims.Value).ToList().Count); 
-        //        }
-        //        else
-        //        {
-        //            _unitOfWork.CartVM.IncrementCartItem(cartItem, cart.Count);
-        //            _unitOfWork.Save();
-        //        }
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+                if (cartItem == null)
+                {
+                    _unitOfWork.Cart.Add(cart);
+                    _unitOfWork.Save();
+                    HttpContext.Session.SetInt32("SessionCart", _unitOfWork.Cart.GetAll(x => x.ApplicationUserId == claims.Value).ToList().Count);
+                }
+                else
+                {
+                    _unitOfWork.Cart.IncrementCartItem(cartItem, cart.Count);
+                    _unitOfWork.Save();
+                }
+            }
+            return RedirectToAction("Index");
+        }
 
 
         public IActionResult AboutUs()
