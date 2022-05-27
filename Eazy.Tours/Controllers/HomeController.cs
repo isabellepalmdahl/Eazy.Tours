@@ -69,6 +69,12 @@ namespace Eazy.Tours.Controllers
         //    return RedirectToAction("Index");
         //}
 
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
