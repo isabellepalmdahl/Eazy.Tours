@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Eazy.Tours.Controllers
 {
     //[Area("Administrator")]
+    [Authorize(Roles = Constants.Roles.Administrator)]
     public class ProductController : Controller
     {
         private IUnitOfWork _unitOfWork;

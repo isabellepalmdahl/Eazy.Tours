@@ -58,13 +58,13 @@ namespace Eazy.Tours.Controllers
                 {
                     _unitOfWork.Cart.Add(cart);
                     _unitOfWork.Save();
-                    HttpContext.Session.SetInt32("SessionCart", _unitOfWork.Cart.GetAll(x => x.ApplicationUserId == claims.Value).ToList().Count);
+                    //HttpContext.Session.SetInt32("SessionCart", _unitOfWork.Cart.GetAll(x => x.ApplicationUserId == claims.Value).ToList().Count);
                 }
-                else
-                {
-                    _unitOfWork.Cart.IncrementCartItem(cartItem, cart.Count);
-                    _unitOfWork.Save();
-                }
+                //else
+                //{
+                //    _unitOfWork.Cart.IncrementCartItem(cartItem, cart.Count);
+                //    _unitOfWork.Save();
+                //}
             }
             return RedirectToAction("Index");
         }

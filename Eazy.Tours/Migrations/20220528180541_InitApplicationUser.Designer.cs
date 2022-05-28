@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Eazy.Tours.Migrations
 {
     [DbContext(typeof(LoginDbContext))]
-    [Migration("20220524161721_InitApplicationUser")]
+    [Migration("20220528180541_InitApplicationUser")]
     partial class InitApplicationUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,7 @@ namespace Eazy.Tours.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
 

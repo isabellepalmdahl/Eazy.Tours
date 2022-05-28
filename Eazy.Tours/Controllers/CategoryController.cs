@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Eazy.Tours.Areas.Administrator.Controllers
 {
     //[Area("Administrator")]
+    [Authorize(Roles = Constants.Roles.Administrator)]
     public class CategoryController : Controller
     {
         private IUnitOfWork _unitOfWork;

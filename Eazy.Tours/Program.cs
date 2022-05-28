@@ -31,6 +31,14 @@ builder.Services.AddControllersWithViews();
 
 AddScoped();
 
+//remove this if buy without login
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogoutPath = $"/Identity/Account/Logout";
+});
+
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
