@@ -45,8 +45,8 @@ namespace Eazy.Tours.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         public IActionResult Details(Cart cart)
-        {
-            if (!ModelState.IsValid)
+        {               
+            if (ModelState.IsValid)
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);

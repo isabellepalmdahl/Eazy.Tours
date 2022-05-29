@@ -11,20 +11,17 @@ namespace Eazy.Tours.Repositories
             _context = context;
         }
 
-        //public void Update(ApplicationUser applicationUser)
-        //{
-        //    //var productDb = _context.Products.FirstOrDefault(x => x.Id == applicationUser.Id);
-        //    //if (productDb != null)
-        //    //{
-        //    //    productDb.Name = product.Name;
-        //    //    productDb.Description = product.Description;
-        //    //    productDb.Price = product.Price;
-        //    //    if (product.ImageUrl != null)
-        //    //    {
-        //    //        productDb.ImageUrl = product.ImageUrl;
-        //    //    }
-        //    //}
+        public void Update(ApplicationUser applicationUser)
+        {
+            //var applicationUserDb = _context.Products.FirstOrDefault(x => x.Id == applicationUser.Id);
+            //if (applicationUserDb != null)
+            //{
+            //    applicationUserDb.FirstName = applicationUser.FirstName;
+            //    applicationUserDb.LastName = applicationUser.LastName;
+            //    applicationUserDb.Email = applicationUser.Email;
 
-        //}
+            //}
+
+        }
     }
 }

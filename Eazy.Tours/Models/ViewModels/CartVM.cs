@@ -21,7 +21,7 @@ namespace Eazy.Tours.Models.ViewModels
         public int Availability { get; set; }
         public IEnumerable<Cart> ListOfCart { get; set; } = new List<Cart>();
         public OrderHeader OrderHeader { get; set; }
-        //public Cart Cart { get; set; } //?
+        public Cart Cart { get; set; } //?
 
     }
 }

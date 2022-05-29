@@ -45,9 +45,9 @@ namespace Eazy.Tours.Controllers
                 OrderHeader = new OrderHeader()
             };
             vm.OrderHeader.ApplicationUser = _unitOfWork.ApplicationUser.GetT(x => x.Id == claims.Value);
-            vm.OrderHeader.FirstName = vm.OrderHeader.ApplicationUser.FirstName;
-            vm.OrderHeader.LastName = vm.OrderHeader.ApplicationUser.LastName;
-            vm.OrderHeader.Email = vm.OrderHeader.ApplicationUser.Email;
+            //vm.OrderHeader.FirstName = vm.OrderHeader.ApplicationUser.FirstName;
+            //vm.OrderHeader.LastName = vm.OrderHeader.ApplicationUser.LastName;
+            //vm.OrderHeader.Email = vm.OrderHeader.ApplicationUser.Email;
 
 
             foreach (var item in vm.ListOfCart)
@@ -147,7 +147,7 @@ namespace Eazy.Tours.Controllers
         //    _unitOfWork.Save();
         //    return View(id);
         //}
-
+        [HttpGet]
         public IActionResult plus(int id)
         {
             var cart = _unitOfWork.Cart.GetT(x => x.Id == id);
