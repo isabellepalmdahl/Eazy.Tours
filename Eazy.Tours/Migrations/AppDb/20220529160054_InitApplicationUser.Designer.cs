@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Eazy.Tours.Migrations.AppDb
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220528180549_InitApplicationUser")]
+    [Migration("20220529160054_InitApplicationUser")]
     partial class InitApplicationUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
