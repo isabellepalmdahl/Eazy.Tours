@@ -61,6 +61,7 @@ namespace Eazy.Tours.Migrations.AppDb
                         .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("PhoneNumberConfirmed")
@@ -77,7 +78,7 @@ namespace Eazy.Tours.Migrations.AppDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("ApplicationUsers");
+                    b.ToTable("ApplicationUser");
                 });
 
             modelBuilder.Entity("Eazy.Tours.Models.Cart", b =>

@@ -14,7 +14,7 @@ namespace Eazy.Tours.Migrations.AppDb
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ApplicationUsers",
+                name: "ApplicationUser",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false)
@@ -24,6 +24,8 @@ namespace Eazy.Tours.Migrations.AppDb
                     LastName = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Email = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PhoneNumber = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     UserName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -38,8 +40,6 @@ namespace Eazy.Tours.Migrations.AppDb
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    PhoneNumber = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     PhoneNumberConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetime(6)", nullable: true),
@@ -48,7 +48,7 @@ namespace Eazy.Tours.Migrations.AppDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ApplicationUsers", x => x.Id);
+                    table.PrimaryKey("PK_ApplicationUser", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -73,7 +73,7 @@ namespace Eazy.Tours.Migrations.AppDb
                 name: "Users",
                 columns: table => new
                 {
-                    id = table.Column<string>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -121,9 +121,9 @@ namespace Eazy.Tours.Migrations.AppDb
                 {
                     table.PrimaryKey("PK_OrderHeaders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderHeaders_ApplicationUsers_ApplicationUserId",
+                        name: "FK_OrderHeaders_ApplicationUser_ApplicationUserId",
                         column: x => x.ApplicationUserId,
-                        principalTable: "ApplicationUsers",
+                        principalTable: "ApplicationUser",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -172,9 +172,9 @@ namespace Eazy.Tours.Migrations.AppDb
                 {
                     table.PrimaryKey("PK_Carts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Carts_ApplicationUsers_ApplicationUserId",
+                        name: "FK_Carts_ApplicationUser_ApplicationUserId",
                         column: x => x.ApplicationUserId,
-                        principalTable: "ApplicationUsers",
+                        principalTable: "ApplicationUser",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -270,7 +270,7 @@ namespace Eazy.Tours.Migrations.AppDb
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "ApplicationUsers");
+                name: "ApplicationUser");
 
             migrationBuilder.DropTable(
                 name: "Categories");

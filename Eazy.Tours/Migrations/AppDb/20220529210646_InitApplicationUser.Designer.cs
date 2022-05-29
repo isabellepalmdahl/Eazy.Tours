@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Eazy.Tours.Migrations.AppDb
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220529160054_InitApplicationUser")]
+    [Migration("20220529210646_InitApplicationUser")]
     partial class InitApplicationUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,6 +63,7 @@ namespace Eazy.Tours.Migrations.AppDb
                         .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("PhoneNumberConfirmed")
@@ -79,7 +80,7 @@ namespace Eazy.Tours.Migrations.AppDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("ApplicationUsers");
+                    b.ToTable("ApplicationUser");
                 });
 
             modelBuilder.Entity("Eazy.Tours.Models.Cart", b =>

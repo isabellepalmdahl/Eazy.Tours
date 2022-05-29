@@ -4,11 +4,11 @@ namespace Eazy.Tours.Repositories.DbInitializer
 {
     public class DbInitializerRepo : IDbInitializer
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly AppDbContext _context;
+        private readonly LoginDbContext _context;
 
-        public DbInitializerRepo(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, AppDbContext context)
+        public DbInitializerRepo(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, LoginDbContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -31,10 +31,25 @@ namespace Eazy.Tours.Repositories.DbInitializer
                 throw;
             }
 
-            //if (!_roleManager.RoleExistsAsync(WebsiteRole.Role_Administrator).GetAwaiter)
-            //{
+            if (!_roleManager.RoleExistsAsync(WebsiteRole.Role_Administrator).GetAwaiter().GetResult())
+            {
+                _roleManager.CreateAsync(new IdentityRole(WebsiteRole.Role_Administrator)).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole(WebsiteRole.Role_Customer)).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole(WebsiteRole.Role_Employee)).GetAwaiter().GetResult();
 
-            //}
+                _userManager.CreateAsync(new ApplicationUser
+                {
+                    UserName = "admin@gmail.com",
+                    Email = "admin@gmail.com",
+                    FirstName = "Admin",
+                    LastName = "Admin",
+                    PhoneNumber = "123123123"
+                }, "Admin@123").GetAwaiter().GetResult();
+                ApplicationUser user = _context.ApplicationUsers.FirstOrDefault(x => x.Email == "admin@gmail.com");
+                _userManager.AddToRoleAsync(user, WebsiteRole.Role_Administrator).GetAwaiter().GetResult();
+
+            }
+            return;
         }
     }
 }
