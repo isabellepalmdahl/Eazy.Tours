@@ -133,7 +133,7 @@ namespace Eazy.Tours.Controllers
             return RedirectToAction("Index", "Home");
 
         }
-
+        [HttpGet]
         public IActionResult ordersuccess(int id)
         {
             var orderHeader = _unitOfWork.OrderHeader.GetT(x => x.Id == id);
@@ -143,7 +143,7 @@ namespace Eazy.Tours.Controllers
             {
                 _unitOfWork.OrderHeader.UpdateStatus(id, BookingStatus.StatusApproved, PaymentStatus.StatusApproved);
             }
-            List<Cart> cart = _unitOfWork.Cart.GetAll(x => x.ApplicationUserId == orderHeader.ApplicationUserId).ToList(); //??????
+            List<Cart> cart = _unitOfWork.Cart.GetAll(x => x.ApplicationUserId == orderHeader.ApplicationUserId).ToList(); 
             _unitOfWork.Cart.DeleteRange(cart);
             _unitOfWork.Save();
             return View(id);

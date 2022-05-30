@@ -3,7 +3,7 @@
     public class UnitOfWork : IUnitOfWork
     {
         private AppDbContext _context;
-
+        //private LoginDbContext _loginContext;
         public ICategoryRepository Category { get; private set; }
         public IProductRepository Product { get; private set; }
         public ICartRepository Cart { get; private set; }
@@ -16,6 +16,7 @@
         public UnitOfWork(IUserRepository user, IRoleRepository role, AppDbContext context)
         {
           _context = context;
+          //_loginContext = loginContext;
           Category = new CategoryRepository(context);
           Product = new ProductRepository(context);
           Cart = new CartRepository(context);
