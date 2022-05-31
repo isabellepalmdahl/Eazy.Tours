@@ -10,22 +10,35 @@ namespace Eazy.Tours.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _context;
         //private readonly IDbRepository _repo;
         private IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
+
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork, AppDbContext context)
         {
             _logger = logger;
             //_repo = repo;
             _unitOfWork = unitOfWork;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string SearchString)
         {
             //checking if user is showing - delete later
             //var user = _repo.GetUserById(1);
 
-            IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            //IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
+
+            //return View(products);
+
+            ViewData["CurrentFilter"] = SearchString;
+            var products = from p in _context.Products
+                           select p;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                products = products.Where(p => p.Name.Contains(SearchString));
+            }
             return View(products);
         }
 
