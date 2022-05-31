@@ -65,7 +65,7 @@ namespace Eazy.Tours.Controllers
                 var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 cart.ApplicationUserId = claims.Value;
 
-                var cartItem = _unitOfWork.Cart.GetT(x => x.ProductId == cart.ProductId && x.ApplicationUserId == claims.Value);
+                 var cartItem = _unitOfWork.Cart.GetT(x => x.ProductId == cart.ProductId && x.ApplicationUserId == claims.Value);
 
                 if (cartItem == null)
                 {
