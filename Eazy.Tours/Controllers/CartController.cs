@@ -49,6 +49,7 @@ namespace Eazy.Tours.Controllers
             vm.OrderHeader.FirstName = vm.OrderHeader.ApplicationUser.FirstName;
             vm.OrderHeader.LastName = vm.OrderHeader.ApplicationUser.LastName;
             vm.OrderHeader.Email = vm.OrderHeader.ApplicationUser.Email;
+            vm.OrderHeader.PhoneNumber = vm.OrderHeader.ApplicationUser.PhoneNumber;
 
 
             foreach (var item in vm.ListOfCart)
@@ -97,7 +98,7 @@ namespace Eazy.Tours.Controllers
             {
                 LineItems = new List<SessionLineItemOptions>(),
                 Mode = "payment",
-                SuccessUrl = domain + $"/cart/ordersuccess?id={vm.OrderHeader.Id}",
+                SuccessUrl = domain + $"cart/ordersuccess?id={vm.OrderHeader.Id}",
                 CancelUrl = domain + $"cart/Index",
             };
 
