@@ -28,10 +28,10 @@ function OrderTable(status) {
     dtable = $('#myTable').DataTable({
         "ajax": { "url": "/Order/AllOrders?status=" + status },
         "columns": [
-            { "data": "name" },
-            { "data": "phone" },
-            { "data": "orderStatus" },
-            { "data": "orderTotal" },
+            { "data": "Name" },
+            { "data": "Phone Number" },
+            { "data": "Booking status" },
+            { "data": "Booking total" },
             {
                 "data": "id",
                 "render": function (data) {

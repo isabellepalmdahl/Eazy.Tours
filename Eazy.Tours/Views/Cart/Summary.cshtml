@@ -12,19 +12,23 @@
                     <div class="row mb-4">
                         <div class="col">
                             <div class="form-outline">
-                                <input type="text" asp-for="@Model.OrderHeader.FirstName" class="form-control"/>
                                 <label class="form-label" for="form7Example1">First name</label>
-                                <input type="text" asp-for="@Model.OrderHeader.LastName" class="form-control"/>
+                                <input type="text" asp-for="@Model.OrderHeader.FirstName" class="form-control"/>
+                                
                                 <label class="form-label" for="form7Example1">Last name</label>
+                                <input type="text" asp-for="@Model.OrderHeader.LastName" class="form-control"/>
+                                
                             </div>
                         </div>
                         <div class="form-outline mb-4">
-                            <input type="text" asp-for="@Model.OrderHeader.Email" class="form-control"/>
                             <label class="form-label" for="form7Example1">Email</label>
+                            <input type="text" asp-for="@Model.OrderHeader.Email" class="form-control"/>
+                            
                         </div>
                             <div class="form-outline mb-4">
-                            <input type="text" asp-for="@Model.OrderHeader.PhoneNumber" class="form-control"/>
                             <label class="form-label" for="form7Example1">Phone</label>
+                            <input type="text" asp-for="@Model.OrderHeader.PhoneNumber" class="form-control"/>
+                            
                         </div>
                     </div>
                 </div>
@@ -41,7 +45,7 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                     <span>@details.Product.Name</span>
                                     <span>QTY: @details.Count</span>
-                                    <span>@(((details.Product.Price)*(details.Count)).ToString("c"))</span>
+                                    <span>@(((details.Product.Price)*(details.Count)).ToString())</span>
                                 </li>
                             }
                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
@@ -51,7 +55,7 @@
                                         <p class="mb-0">(including VAT)</p>
                                     </strong>
                                 </div>
-                                <span><strong>@Model.OrderHeader.OrderTotal.ToString("c")</strong></span>
+                                <span><strong>@Model.OrderHeader.OrderTotal.ToString()</strong></span>
                             </li>
                         </ul>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">
