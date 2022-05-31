@@ -211,48 +211,18 @@ namespace Eazy.Tours.Migrations.AppDb
                     b.ToTable("OrderHeaders");
                 });
 
-            modelBuilder.Entity("Eazy.Tours.Models.Poco.User", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("password")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<int>("phoneNumber")
-                        .HasMaxLength(16)
-                        .HasColumnType("int");
-
-                    b.Property<string>("role")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("email")
-                        .IsUnique();
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("Eazy.Tours.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Availability")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
