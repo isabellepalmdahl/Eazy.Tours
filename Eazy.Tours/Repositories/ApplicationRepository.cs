@@ -1,12 +1,12 @@
 ﻿
 namespace Eazy.Tours.Repositories
 {
-    public class ApplicationRepository : Repository<ApplicationUser>, IApplicationUser
+    public class ApplicationRepository : DbRepository<ApplicationUser>, IApplicationUser
     {
-        private AppDbContext _context;
+        private LoginDbContext _context;
 
 
-        public ApplicationRepository(AppDbContext context) : base(context)
+        public ApplicationRepository(LoginDbContext context) : base(context)
         {
             _context = context;
         }

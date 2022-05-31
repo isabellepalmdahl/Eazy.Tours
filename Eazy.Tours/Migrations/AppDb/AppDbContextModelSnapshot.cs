@@ -197,6 +197,10 @@ namespace Eazy.Tours.Migrations.AppDb
                     b.Property<string>("PaymentStatus")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("SessionId")
                         .HasColumnType("longtext");
 

@@ -10,13 +10,13 @@ namespace Eazy.Tours.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IDbRepository _repo;
+        //private readonly IDbRepository _repo;
         private IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger, IDbRepository repo, IUnitOfWork unitOfWork)
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
-            _repo = repo;
+            //_repo = repo;
             _unitOfWork = unitOfWork;
         }
 

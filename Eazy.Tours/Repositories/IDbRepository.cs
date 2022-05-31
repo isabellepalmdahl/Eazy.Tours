@@ -2,9 +2,18 @@
 
 namespace Eazy.Tours.Repositories
 {
-    public interface IDbRepository
+    public interface IDbRepository<T> where T : class
     {
-        User GetUserById(int id);
+        // x=>x.id==id, _context.products.include("categories, tags").tolist();
+        IEnumerable<T> GetAll(Expression<Func<T, bool>>? predicate = null, string? includeProperties = null);
+        T GetT(Expression<Func<T, bool>>? predicate = null, string? includeProperties = null);
+        void Add(T entity);
+        void Delete(T entity);
+        void DeleteRange(IEnumerable<T> entity);
+    
+
+
+        //User GetUserById(int id);
 
     }
 }
