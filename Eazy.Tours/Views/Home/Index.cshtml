@@ -3,6 +3,10 @@
     ViewData["Title"] = "Home Page";
 }
 <h2 class="text-primary">Products</h2>
+<form class="d-flex">
+<input class="form-control me-sm-2" type="text" placeholder="Search">
+<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+</form>
 <div class="row pb-4">
     @foreach (var item in @Model)
     {
