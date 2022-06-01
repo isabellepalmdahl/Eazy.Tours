@@ -53,6 +53,12 @@ body {
     text-justify: inter-word;
 }
 
+.checkmark {
+    height: 200px;
+    width: auto;
+    align-items: center;
+}
+
 /*FOOTER*/
 .logo2 {
     width: 100px;
@@ -106,7 +112,7 @@ body {
 
     .footer-social a:hover {
         background: #f3969a;
-        border-color: #f3969a;
+        border-color: whitesmoke;
         color: black;
     }
 

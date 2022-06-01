@@ -112,7 +112,7 @@ namespace Eazy.Tours.Controllers
         }
 
         [Authorize(Roles = WebsiteRole.Role_Administrator + "," + WebsiteRole.Role_Employee)]
-        public IActionResult CancelOrder(OrderVM vm)
+        public IActionResult CancelBooking(OrderVM vm)
         {
             var orderHeader = _unitOfWork.OrderHeader.GetT(x => x.Id == vm.OrderHeader.Id);
             if (orderHeader.PaymentStatus == PaymentStatus.StatusApproved)
@@ -133,7 +133,8 @@ namespace Eazy.Tours.Controllers
             }
             _unitOfWork.Save();
             TempData["success"] = "Booking cancelled";
-            return RedirectToAction("OrderDetails", "Order", new { id = vm.OrderHeader.Id });
+            //return RedirectToAction("OrderDetails", "Order", new { id = vm.OrderHeader.Id });
+            return View(vm);
         }
 
         [Authorize(Roles = WebsiteRole.Role_Administrator + "," + WebsiteRole.Role_Employee)]
