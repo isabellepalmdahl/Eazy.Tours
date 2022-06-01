@@ -13,12 +13,20 @@ html {
   min-height: 100%;
 }
     */
+
+/*MAIN*/
+
 body {
     display:flex; 
     flex-direction:column; 
 }
 
-/*MAIN*/
+.container {
+    max-width: 1500px;
+    margin-top: 10px;
+}
+
+
 .logo {
     width: 70px;
     height: auto;
@@ -36,6 +44,11 @@ body {
 
 .btn {
     margin: 5px;
+}
+
+#tc {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .footer {
