@@ -33,6 +33,8 @@ body {
     margin-right: 5px;
 }
 
+
+
 #searchbar {
     margin-bottom: 10px;
 }
@@ -51,10 +53,67 @@ body {
     text-justify: inter-word;
 }
 
-.footer {
-    min-height: 100px;
-    max-height: 200px;
+/*FOOTER*/
+.logo2 {
+    width: 100px;
+    height: auto;
+    margin-right: 5px;
 }
+
+.site-footer {
+    padding: 5em 0;
+    background: #78c2ad;
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+.site-footer p:last-child {
+    margin-bottom: 0;
+}
+
+    .site-footer a {
+        color: whitesmoke;
+        border-bottom: 1px solid transparent;
+    }
+
+        .site-footer a:hover {
+            color: #f3969a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+.site-footer h4 {
+    font-size: 22px;
+    margin-bottom: 28px;
+    letter-spacing: .05em;
+    color: whitesmoke;
+}
+
+.site-footer .footer-link li {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.footer-social a {
+    line-height: 0;
+    border-radius: 70%;
+    margin: 0 5px 5px 0;
+
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    display: inline-block;
+}
+
+    .footer-social a:hover {
+        background: #f3969a;
+        border-color: #f3969a;
+        color: black;
+    }
+
+.footer-social .fa {
+    margin-top: 8px;
+}
+
 /*CALENDAR*/
 .md-calendar-booking .mbsc-calendar-text {
     text-align: center;
