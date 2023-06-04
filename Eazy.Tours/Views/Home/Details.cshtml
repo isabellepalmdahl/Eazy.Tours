@@ -1,0 +1,46 @@
+﻿@model Eazy.Tours.Models.ViewModels.CartVM
+@{
+    ViewData["Title"] = "Product details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-primary">Details</h2>
+<form method="post">
+    <div class="row">
+        <div class="col-4">
+            <img src="@Model.Product.ImageUrl" width="200" height="200"/>
+            <input type="hidden" asp-for="ProductId"/>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <label asp-for="Product.Name"><b>Name: @Model.Product.Name</b></label>
+                <label asp-for="Product.Description">Description: @Model.Product.Description</label>
+                <label asp-for="Product.Address">Address: @Model.Product.Address</label>
+                <label asp-for="Product.Description">Price: € @Model.Product.Price.ToString("0.00")</label>
+                <label asp-for="Product.Category.Id">Category: @Model.Product.Category.Name</label>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="md-calendar-booking">
+                <div class="mbsc-form-group">
+                    <div class="mbsc-form-group-title">Select date & time</div>
+                    <div id="demo-booking-datetime" class="booking-datetime"></div>
+                </div>
+            </div>
+            <div class="form-control">
+                <label asp-for="Count">Number of people</label>
+                <input asp-for="Count" class="form-control"/>
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="form-control">
+                <button class="btn btn-secondary" asp-action="Index" asp-controller="Home">Back to excursions</button>
+                <button type="submit" class="btn btn-success">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section scripts{
+    <script src="~/js/MobiScroll.js"></script>
+}
+

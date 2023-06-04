@@ -1,0 +1,50 @@
+﻿@using Eazy.Tours.Areas.Identity.Data
+
+@{
+    ViewData["Title"] = "User Page";
+}
+@model ICollection<ApplicationUser>
+<div class="text-center">
+    <h2 class="text-primary">List of Users</h2>
+    @if(@Model != null && @Model.Any())
+    {
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var user in Model)
+      {
+        <tr>
+          <th scope="row">@user.Id</th>
+          <td>@user.FirstName</td>
+          <td>@user.LastName</td>
+          <td>@user.Email</td>
+          <td>
+              <a asp-controller="User" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+          </td>
+        </tr> 
+      }
+  </tbody>
+</table>
+
+    }
+</div>
+
+<div class="text-center">
+
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

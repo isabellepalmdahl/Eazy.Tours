@@ -1,4 +1,4 @@
-html {
+/*html {
   font-size: 14px;
 }
 
@@ -12,7 +12,129 @@ html {
   position: relative;
   min-height: 100%;
 }
+    */
+
+/*MAIN*/
 
 body {
-  margin-bottom: 60px;
+    display:flex; 
+    flex-direction:column; 
+}
+
+.container {
+    max-width: 1500px;
+    margin-top: 10px;
+}
+
+
+.logo {
+    width: 70px;
+    height: auto;
+    margin-right: 5px;
+}
+
+
+
+#searchbar {
+    margin-bottom: 10px;
+}
+
+.card-img-top {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.btn {
+    margin: 5px;
+}
+
+#tc {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.checkmark {
+    height: 200px;
+    width: auto;
+    align-items: center;
+}
+
+/*FOOTER*/
+.logo2 {
+    width: 100px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.site-footer {
+    padding: 5em 0;
+    background: #78c2ad;
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+.site-footer p:last-child {
+    margin-bottom: 0;
+}
+
+    .site-footer a {
+        color: whitesmoke;
+        border-bottom: 1px solid transparent;
+    }
+
+        .site-footer a:hover {
+            color: #f3969a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+.site-footer h4 {
+    font-size: 22px;
+    margin-bottom: 28px;
+    letter-spacing: .05em;
+    color: whitesmoke;
+}
+
+.site-footer .footer-link li {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.footer-social a {
+    line-height: 0;
+    border-radius: 70%;
+    margin: 0 5px 5px 0;
+
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    display: inline-block;
+}
+
+    .footer-social a:hover {
+        background: #f3969a;
+        border-color: whitesmoke;
+        color: black;
+    }
+
+.footer-social .fa {
+    margin-top: 8px;
+}
+
+/*CALENDAR*/
+.md-calendar-booking .mbsc-calendar-text {
+    text-align: center;
+}
+
+.md-calendar-booking .booking-datetime .mbsc-datepicker-tab-calendar {
+    flex: 1 1 0;
+    min-width: 300px;
+}
+
+.md-calendar-booking .mbsc-timegrid-item {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.md-calendar-booking .mbsc-timegrid-container {
+    top: 30px;
 }
